@@ -1,12 +1,21 @@
+import { AppSidebar } from "@/components/app-navbar";
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+
 export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-      <section>
-        {children}
-    </section>
+      <>   
+          <SidebarProvider>
+              <AppSidebar />
+              <SidebarTrigger />
+              <SidebarInset>
+                {children}                  
+              </SidebarInset>
+          </SidebarProvider>    
+    </>
   );
     
 }
